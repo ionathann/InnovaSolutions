@@ -10,7 +10,6 @@ using InovaSolutionsDAP3.Metodos;
 using InovaSolutionsDAP3.Context;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Text.RegularExpressions;
 
 namespace InovaSolutionsDAP3
 {
@@ -29,7 +28,6 @@ namespace InovaSolutionsDAP3
 
         private void FrmNewcandidata_Load(object sender, EventArgs e)
         {
-            label8.Text = frmEnu.SessionActiva.usuario.pkUsuario.ToString();
             var getlvl = CsHerramientas.getEstudios();
             txtNivelEstudios.AutoCompleteMode = AutoCompleteMode.Append;
             AutoCompleteStringCollection acscl = new AutoCompleteStringCollection();
@@ -41,7 +39,7 @@ namespace InovaSolutionsDAP3
             {
 
                 cbxConvocatorias.DataSource = ctx.convocatorias.ToList();
-                cbxMunicipios.DataSource = ctx.municipios.Where(x => x.bStatus).ToList();
+                cbxMunicipios.DataSource = ctx.municipios.ToList();
 
             }
         }
@@ -63,7 +61,7 @@ namespace InovaSolutionsDAP3
                     foti = true;
                     pbxFoto.Image = Image.FromFile(dSelFichero.FileName);
                     filename = System.IO.Path.GetFileName(dSelFichero.FileName);
-
+                    
 
                 }
 
@@ -76,8 +74,6 @@ namespace InovaSolutionsDAP3
             this.Close();
         }
 
-
-
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             if (modi)
@@ -88,80 +84,30 @@ namespace InovaSolutionsDAP3
                     try
                     {
                         File.Delete(CsCandidatas.obtenerCandi(id).sFotografia.ToString());
-                        pbxFoto.Image.Save(@"C:\Users\ionathann\Documents\Output\InovaSolutionsDAP3\inovaWEBdap3\imagenes\" + filename, ImageFormat.Jpeg);
-                        
-                        ruta = @"\Imagenes\" + filename;
+                        pbxFoto.Image.Save(@"C:\Imagenes\" + filename, ImageFormat.Jpeg);
+
+                        ruta = @"C:\Imagenes\" + filename;
                     }
                     catch (Exception)
                     {
+
                         throw;
                     }
 
                 }
 
-                CsCandidatas.Modificar(id, txtnombre.Text, dtpFDN.Value, txtCURp.Text, txtNivelEstudios.Text, ruta, Convert.ToInt32(cbxConvocatorias.SelectedValue), Convert.ToInt32(cbxMunicipios.SelectedValue), txtcorreo.Text);
-                lblvariable.Text = "OK";
+                CsCandidatas.Modificar(id, txtnombre.Text, dtpFDN.Value, txtCURp.Text, txtNivelEstudios.Text, ruta, Convert.ToInt32(cbxConvocatorias.SelectedValue), Convert.ToInt32(cbxMunicipios.SelectedValue),txtcorreo.Text);
+                
 
-
+               
             }
             else if (modi == false)
             {
-                if (CsCandidatas.comprobar(Convert.ToInt32(cbxConvocatorias.SelectedValue), Convert.ToInt32(cbxMunicipios.SelectedValue),txtnombre.Text) == false)
-                {
-                    CsCandidatas.Guardar(txtnombre.Text, dtpFDN.Value, txtCURp.Text, txtNivelEstudios.Text, @"\imagenes\" + filename, Convert.ToInt32(cbxConvocatorias.SelectedValue), Convert.ToInt32(cbxMunicipios.SelectedValue), txtcorreo.Text,frmEnu.SessionActiva.usuario.pkUsuario);
-                    CsVotos.registrar(txtdescrip.Text);
-                    lblvariable.Text = "OK";
-                    pbxFoto.Image.Save(@"C:\Users\ionathann\Documents\Output\InovaSolutionsDAP3\inovaWEBdap3\imagenes\" + filename, ImageFormat.Jpeg);
-                }
-                else
-                {
-                    MessageBox.Show("NO se permite registrar la misma candidata en más de un municipio en el mismo año.");
 
-
-                }
-
+                CsCandidatas.Guardar(txtnombre.Text, dtpFDN.Value, txtCURp.Text, txtNivelEstudios.Text, @"C:\Imagenes\" + filename, Convert.ToInt32(cbxConvocatorias.SelectedValue), Convert.ToInt32(cbxMunicipios.SelectedValue),txtcorreo.Text);
+                pbxFoto.Image.Save(@"C:\Imagenes\" + filename, ImageFormat.Jpeg);
             }
 
         }
-
-
-        public static bool validarEmail(string email)
-        {
-            String expresion;
-            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-            if (Regex.IsMatch(email, expresion))
-            {
-                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else { return false; }
-            }
-
-            return false;
-        }
-
-        private void txtcorreo_Leave(object sender, EventArgs e)
-        {
-            if (validarEmail(txtcorreo.Text) == false)
-            {
-                MessageBox.Show("El Email Ingresado no se encuentra en el Formato Correcto", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
-                btnRegistrar.Enabled = false;
-            }
-            else
-            {
-                btnRegistrar.Enabled = true;
-            
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-           
-        }
-
-
     }
-
 }

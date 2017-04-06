@@ -72,7 +72,7 @@ namespace InovaSolutionsDAP3
                 System.IO.FileStream fs = new System.IO.FileStream(@"C:\Users\ionathann\Documents\Output\InovaSolutionsDAP3\inovaWEBdap3\" + CsCandidatas.obtenerCandi(CsHerramientas.gridvg(dgvCandidatas)).sFotografia.ToString(), System.IO.FileMode.Open);
                 abri.ruta = CsCandidatas.obtenerCandi(CsHerramientas.gridvg(dgvCandidatas)).sFotografia.ToString();
                 abri.pbxFoto.Image = Image.FromStream(fs);
-                abri.button2.Visible = true;
+             
                 fs.Close();
 
                 abri.txtcorreo.Text = CsCandidatas.obtenerCandi(CsHerramientas.gridvg(dgvCandidatas)).sCorreo.ToString();
@@ -88,6 +88,7 @@ namespace InovaSolutionsDAP3
                     
                 {
                     CsCandidatas.BORRAR(CsHerramientas.gridvg(dgvCandidatas));
+                    CsVotos.borrar(CsHerramientas.gridvg(dgvCandidatas));                   
                     dgvCandidatas.Rows.Clear();
                 }
                 else

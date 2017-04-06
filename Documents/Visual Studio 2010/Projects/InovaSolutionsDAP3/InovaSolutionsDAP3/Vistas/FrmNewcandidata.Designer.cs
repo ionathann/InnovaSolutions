@@ -48,10 +48,7 @@
             this.cbxMunicipios = new System.Windows.Forms.ComboBox();
             this.txtcorreo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtdescrip = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblvariable = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxFoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +57,7 @@
             this.btnExaminar.Location = new System.Drawing.Point(282, 110);
             this.btnExaminar.Name = "btnExaminar";
             this.btnExaminar.Size = new System.Drawing.Size(98, 23);
-            this.btnExaminar.TabIndex = 7;
+            this.btnExaminar.TabIndex = 48;
             this.btnExaminar.Text = "Examinar";
             this.btnExaminar.UseVisualStyleBackColor = true;
             this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
@@ -114,7 +111,7 @@
             this.txtnombre.Location = new System.Drawing.Point(12, 62);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(203, 20);
-            this.txtnombre.TabIndex = 1;
+            this.txtnombre.TabIndex = 40;
             // 
             // label2
             // 
@@ -140,7 +137,7 @@
             this.dtpFDN.Location = new System.Drawing.Point(221, 62);
             this.dtpFDN.Name = "dtpFDN";
             this.dtpFDN.Size = new System.Drawing.Size(106, 20);
-            this.dtpFDN.TabIndex = 2;
+            this.dtpFDN.TabIndex = 51;
             // 
             // label3
             // 
@@ -157,7 +154,7 @@
             this.txtCURp.Mask = "LLLL000000LLLLLL00";
             this.txtCURp.Name = "txtCURp";
             this.txtCURp.Size = new System.Drawing.Size(110, 20);
-            this.txtCURp.TabIndex = 3;
+            this.txtCURp.TabIndex = 53;
             // 
             // label4
             // 
@@ -173,7 +170,7 @@
             this.txtNivelEstudios.Location = new System.Drawing.Point(458, 62);
             this.txtNivelEstudios.Name = "txtNivelEstudios";
             this.txtNivelEstudios.Size = new System.Drawing.Size(100, 20);
-            this.txtNivelEstudios.TabIndex = 4;
+            this.txtNivelEstudios.TabIndex = 55;
             // 
             // cbxConvocatorias
             // 
@@ -183,7 +180,7 @@
             this.cbxConvocatorias.Location = new System.Drawing.Point(12, 110);
             this.cbxConvocatorias.Name = "cbxConvocatorias";
             this.cbxConvocatorias.Size = new System.Drawing.Size(121, 21);
-            this.cbxConvocatorias.TabIndex = 5;
+            this.cbxConvocatorias.TabIndex = 56;
             this.cbxConvocatorias.ValueMember = "pkConvocatoria";
             // 
             // label5
@@ -221,7 +218,7 @@
             this.cbxMunicipios.Location = new System.Drawing.Point(144, 110);
             this.cbxMunicipios.Name = "cbxMunicipios";
             this.cbxMunicipios.Size = new System.Drawing.Size(121, 21);
-            this.cbxMunicipios.TabIndex = 6;
+            this.cbxMunicipios.TabIndex = 58;
             this.cbxMunicipios.ValueMember = "pkMunicipio";
             // 
             // txtcorreo
@@ -229,8 +226,7 @@
             this.txtcorreo.Location = new System.Drawing.Point(12, 155);
             this.txtcorreo.Name = "txtcorreo";
             this.txtcorreo.Size = new System.Drawing.Size(100, 20);
-            this.txtcorreo.TabIndex = 8;
-            this.txtcorreo.Leave += new System.EventHandler(this.txtcorreo_Leave);
+            this.txtcorreo.TabIndex = 61;
             // 
             // label7
             // 
@@ -241,49 +237,24 @@
             this.label7.TabIndex = 60;
             this.label7.Text = "Correo";
             // 
-            // label8
+            // button2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(266, 21);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 63;
-            this.label8.Text = "label8";
-            // 
-            // txtdescrip
-            // 
-            this.txtdescrip.Location = new System.Drawing.Point(124, 155);
-            this.txtdescrip.Multiline = true;
-            this.txtdescrip.Name = "txtdescrip";
-            this.txtdescrip.Size = new System.Drawing.Size(252, 70);
-            this.txtdescrip.TabIndex = 64;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(124, 139);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 13);
-            this.label9.TabIndex = 65;
-            this.label9.Text = "Descripción";
-            // 
-            // lblvariable
-            // 
-            this.lblvariable.AutoSize = true;
-            this.lblvariable.Location = new System.Drawing.Point(12, 226);
-            this.lblvariable.Name = "lblvariable";
-            this.lblvariable.Size = new System.Drawing.Size(0, 13);
-            this.lblvariable.TabIndex = 66;
+            this.button2.BackColor = System.Drawing.Color.DarkGray;
+            this.button2.Font = new System.Drawing.Font("Haettenschweiler", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(251, 242);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(125, 32);
+            this.button2.TabIndex = 62;
+            this.button2.Text = "Eliminar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Visible = false;
             // 
             // FrmNewcandidata
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(571, 289);
-            this.Controls.Add(this.lblvariable);
-            this.Controls.Add(this.txtdescrip);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.txtcorreo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -336,9 +307,6 @@
         public System.Windows.Forms.ComboBox cbxMunicipios;
         public System.Windows.Forms.TextBox txtcorreo;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.TextBox txtdescrip;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lblvariable;
+        public System.Windows.Forms.Button button2;
     }
 }
